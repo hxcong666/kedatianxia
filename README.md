@@ -71,6 +71,25 @@ allure serve report
 - **课程管理 (Course)**: 验证添加课程等功能。
 - **合同管理 (Contract)**: 验证合同上传等功能。
 
+### 详细脚本说明
+
+#### 1. 登录模块
+- `script/LoginTestOne.py`: 基础登录测试。包含正常登录、用户名为空、用户不存在等场景。
+- `script/LoginTestJson.py`: 数据驱动登录测试。通过读取 `data/login.json` 文件批量执行不同参数的登录测试。
+- `script/LoginTest.py`: 简单的登录接口调试脚本。
+
+#### 2. 课程管理模块
+- `script/CurseTestAdd.py`: 验证课程新增功能 (包含成功与未登录失败场景)。
+- `script/CourseTestDelete.py`: 验证课程删除功能 (包含成功、ID不存在、未登录失败场景)。
+- `script/CourseTestUpdate.py`: 验证课程修改功能。
+- `script/CourseTestSelect.py`: 验证课程查询功能。
+
+#### 3. 合同管理模块
+- `script/ContractTest.py`: 验证合同管理完整流程。包含：登录 -> 新增课程 -> 上传合同文件 -> 新增合同数据。
+
+#### 4. 辅助脚本
+- `script/ImageTest.py`: 验证码接口调试脚本。
+
 ## 📄 其它说明
 
 - `pytest.ini` 文件中配置了默认的运行参数（如 `-s` 输出控制台信息，`--alluredir report` 生成报告数据）。
